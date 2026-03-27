@@ -3,44 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe Web Application</title>
-    <style>
-        body { font-family: Arial, sans-serif; }
-        .container { max-width: 600px; margin: auto; padding: 20px; }
-        input, select, button { width: 100%; margin: 10px 0; padding: 10px; }
-    </style>
+    <title>Recipe Generator</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Recipe Finder</h1>
-        <input type="text" id="ingredients" placeholder="Enter ingredients" required>
-        <select id="taste">
-            <option value="">Select taste</option>
-            <option value="sweet">Sweet</option>
-            <option value="sour">Sour</option>
-            <option value="savory">Savory</option>
-            <option value="spicy">Spicy</option>
-        </select>
-        <select id="cuisine">
-            <option value="">Select cuisine</option>
-            <option value="italian">Italian</option>
-            <option value="indian">Indian</option>
-            <option value="chinese">Chinese</option>
-            <option value="mexican">Mexican</option>
-        </select>
-        <input type="text" id="apiKey" placeholder="Enter your API key" required>
-        <button id="submit">Get Recipes</button>
-        <div id="recipeDisplay"></div>
+        <h1>Recipe Generator</h1>
+        <form id="recipe-form">
+            <div>
+                <label for="ingredients">Ingredients:</label>
+                <textarea id="ingredients" name="ingredients"></textarea>
+            </div>
+            <div>
+                <label for="taste">Taste:</label>
+                <select id="taste" name="taste">
+                    <option value="sweet">Sweet</option>
+                    <option value="savory">Savory</option>
+                    <option value="spicy">Spicy</option>
+                    <option value="sour">Sour</option>
+                </select>
+            </div>
+            <div>
+                <label for="cuisine">Cuisine:</label>
+                <select id="cuisine" name="cuisine">
+                    <option value="italian">Italian</option>
+                    <option value="chinese">Chinese</option>
+                    <option value="indian">Indian</option>
+                    <option value="mexican">Mexican</option>
+                </select>
+            </div>
+            <div>
+                <label for="api-key">API Key:</label>
+                <input type="text" id="api-key" name="api-key" required>
+            </div>
+            <button type="submit">Generate Recipe</button>
+        </form>
+        <div id="recipe-output"></div>
     </div>
-    <script>
-        document.getElementById('submit').addEventListener('click', function() {
-            const ingredients = document.getElementById('ingredients').value;
-            const taste = document.getElementById('taste').value;
-            const cuisine = document.getElementById('cuisine').value;
-            const apiKey = document.getElementById('apiKey').value;
-            // In a real application, you would use the inputs to fetch recipes from an API.
-            document.getElementById('recipeDisplay').innerHTML = '<p>Recipes would be displayed here...</p>';
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
